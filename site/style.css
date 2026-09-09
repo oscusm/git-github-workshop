@@ -1,0 +1,198 @@
+/* Dark theme, system fonts, zero external requests.
+   Sized to stay readable when projected on a screen at the back of a room. */
+
+:root {
+  --bg: #0b0f14;
+  --bg-glow: #12202e;
+  --surface: #151b23;
+  --surface-hi: #1d252f;
+  --border: #2a3540;
+  --text: #e8eef5;
+  --muted: #9bb0c4;
+  --accent: #5ad1a4;
+  --accent-2: #6ab8ff;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0 clamp(1rem, 4vw, 3rem) 4rem;
+  background:
+    radial-gradient(1100px 520px at 50% -180px, var(--bg-glow), transparent 70%),
+    var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+               Arial, "Noto Sans", sans-serif;
+  font-size: clamp(17px, 1.15vw, 21px);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.kicker {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6.5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  background: linear-gradient(100deg, var(--text) 20%, var(--accent-2) 65%, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  margin: 1rem auto 0;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 1.05em;
+}
+
+.count {
+  display: inline-block;
+  margin: 1.75rem 0 0;
+  padding: 0.45em 1.1em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.92em;
+}
+
+.count strong {
+  color: var(--accent);
+  font-size: 1.15em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- grid ---------- */
+
+main { max-width: 1400px; margin: 0 auto; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(170deg, var(--surface-hi), var(--surface));
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 2.9em;
+  height: 2.9em;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--accent), var(--accent-2));
+  color: #08131b;
+  font-size: 0.85em;
+  font-weight: 800;
+}
+
+.card-id { min-width: 0; }
+
+.card-name {
+  margin: 0;
+  font-size: 1.12em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.card-user {
+  color: var(--accent-2);
+  font-size: 0.85em;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.card-user:hover,
+.card-user:focus-visible { text-decoration: underline; }
+
+.card-fact {
+  margin: 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  padding: 3rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  max-width: 1400px;
+  margin: clamp(3rem, 7vw, 5rem) auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.9em;
+}
+
+footer p { margin: 0.35rem 0; }
+
+.muted { opacity: 0.7; }
+
+code {
+  padding: 0.15em 0.45em;
+  border-radius: 6px;
+  background: var(--surface-hi);
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git &amp; GitHub Workshop — OSC USM</title>
+  <meta name="description" content="Everyone who opened their first pull request at the OSC USM Git &amp; GitHub workshop.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🌱</text></svg>">
+</head>
+<body>
+  <header class="masthead">
+    <p class="kicker">OSC · University of Southern Mississippi</p>
+    <h1>Git &amp; GitHub Workshop</h1>
+    <p class="tagline">Everyone here forked a repo, opened a pull request, and got it merged.</p>
+    <p class="count"><strong>{{COUNT}}</strong> {{PEOPLE_LABEL}} on the board</p>
+  </header>
+
+  <main>
+    <div class="grid">
+{{CARDS}}
+    </div>
+  </main>
+
+  <footer>
+    <p>Add yourself: fork the repo, drop a file in <code>people/</code>, open a pull request.</p>
+    <p class="muted">This page rebuilds automatically every time a PR is merged.</p>
+  </footer>
+</body>
+</html>
